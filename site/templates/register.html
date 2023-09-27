@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Регистрация</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <label for="login">Логин:</label>
+            <input type="text" name="login" required>
+            <br>
+            <label for="password">Пароль:</label>
+            <input type="password" name="password" required>
+            <br>
+            <label for="firstname">Имя:</label>
+            <input type="text" name="firstname" required>
+            <br>
+            <label for="lastname">Фамилия:</label>
+            <input type="text" name="lastname" required>
+            <br>
+            <label for="birthdate">Дата рождения:</label>
+            <input type="date" name="birthdate" required>
+            <br>
+            <label for="contactinfo">Контактная информация:</label>
+            <input type="text" name="contactinfo" required>
+            <br>
+            <!-- Удалите поле для ввода баланса, так как он будет установлен в 0 автоматически -->
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+        <p><a href="{{ url_for('index') }}">Вернуться на главный экран</a></p>
+    </div>
+</body>
+</html>
