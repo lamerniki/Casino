@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ game['GameName'] }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>{{ game['GameName'] }}</h2>
+        <p><strong>Правила игры:</strong> {{ game['Rules'] }}</p>
+        <p><strong>Шанс на победу:</strong> {{ game['WinChance'] }} %</p>
+        <p><a href="{{ url_for('play_coin_flip', choice='eagle', game_id=game['GameID']) }}" class="btn btn-primary">Играть в Орла и Решку</a></p>
+        <p><a href="{{ url_for('gamelist') }}" class="btn btn-secondary">Вернуться к списку игр</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

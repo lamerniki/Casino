@@ -1,0 +1,75 @@
+/* style.css */
+
+/* Стилизация заголовка страницы */
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+/* Стилизация формы */
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Стилизация ссылки "Назад к профилю" */
+p a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Установка отступа от верхнего края */
+body {
+    margin-top: 20px;
+}
+
+/* Стилизация уведомлений */
+.flash {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* Стилизация уведомления об успешной операции */
+.flash.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Стилизация уведомления об ошибке */
+.flash.error {
+    background-color: #F44336;
+    color: white;
+}
+

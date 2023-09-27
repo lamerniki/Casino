@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Игра "Орёл и Решка"</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Игра "Орёл и Решка"</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="bet_amount">Введите сумму ставки:</label>
+                <input type="number" class="form-control" id="bet_amount" name="bet_amount" required>
+            </div>
+            <div class="form-group">
+                <p>Выберите вашу ставку:</p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="eagle" name="choice" value="eagle" class="custom-control-input" required>
+                    <label class="custom-control-label" for="eagle">Орёл</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="tail" name="choice" value="tail" class="custom-control-input" required>
+                    <label class="custom-control-label" for="tail">Решка</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Играть</button>
+        </form>
+        <p>Ваш текущий баланс: {{ balance }}</p>
+        <p><a href="{{ url_for('gamelist') }}" class="btn btn-secondary">Вернуться к списку игр</a></p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
