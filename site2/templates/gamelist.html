@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список игр</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Список игр</h2>
+        <ul class="list-group">
+            {% for game in games %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <a href="{{ url_for('game', game_id=game['GameID']) }}">{{ game['GameName'] }}</a>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            {{ game['GameStatus'] }}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="mt-3"><a href="{{ url_for('profile') }}" class="btn btn-secondary">Вернуться к профилю</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

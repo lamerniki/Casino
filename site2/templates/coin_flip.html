@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Игра "Орёл и Решка"</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .coin-container {
+            position: relative;
+        }
+        
+        .coin {
+            width: 80px;
+            height: 80px;
+            background-color: #ffc107; /* Цвет монетки (желтый) */
+            border-radius: 50%;
+            position: absolute;
+            top: -120px;
+            left: 130px;
+            animation: toss-coin 1s ease-out 1; /* Анимация подбрасывания монетки */
+        }
+        
+        @keyframes toss-coin {
+            0% {
+                transform: translateY(0) rotateX(0);
+            }
+            25% {
+                transform: translateY(-50px) rotateX(90deg);
+            }
+            50% {
+                transform: translateY(0) rotateX(180deg);
+            }
+            75% {
+                transform: translateY(-50px) rotateX(270deg);
+            }
+            100% {
+                transform: translateY(0) rotateX(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Игра "Орёл и Решка"</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="bet_amount">Введите сумму ставки:</label>
+                <input type="number" class="form-control" id="bet_amount" name="bet_amount" required>
+            </div>
+            <div class="form-group">
+                <p>Выберите вашу ставку:</p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="eagle" name="choice" value="eagle" class="custom-control-input" required>
+                    <label class="custom-control-label" for="eagle">Орёл</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="tail" name="choice" value="tail" class="custom-control-input" required>
+                    <label class="custom-control-label" for="tail">Решка</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Подбросить монетку</button>
+        </form>
+        <div class="coin-container">
+            <div class="coin"></div>
+        </div>
+        <p>Ваш текущий баланс: {{ balance }}</p>
+        <p><a href="{{ url_for('gamelist') }}" class="btn btn-secondary">Вернуться к списку игр</a></p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

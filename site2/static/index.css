@@ -1,0 +1,16 @@
+@keyframes colorChange {
+  0% {
+    color: red; /* Начальный цвет (например, красный) */
+  }
+  50% {
+    color: green; /* Половина анимации (например, зеленый) */
+  }
+  100% {
+    color: red; /* Конечный цвет (снова красный) */
+  }
+}
+
+.title-animation {
+  animation: colorChange 2s infinite; /* Применение анимации к элементу с классом "title-animation" */
+}
+
